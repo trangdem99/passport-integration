@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  nodejs:
+    container_name: 'passport_integration_nodejs'
+    image: node:18
+    volumes:
+      - ./:/var/www/html/
+    ports:
+      - '3000:3000'
+      - '5003:5003'
+    working_dir: /var/www/html/
+    entrypoint: ["tail", "-f", "/dev/null"]
