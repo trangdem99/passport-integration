@@ -1,0 +1,3 @@
+http-server -p 3000
+
+ngrok http nodejs:3000 --domain albacore-creative-partially.ngrok-free.app 80

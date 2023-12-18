@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  nodejs:
+    container_name: 'passport_integration_nodejs'
+    image: node:20.9
+    volumes:
+      - ./immutable-stackupinvaders/:/var/www/html/
+    ports:
+      - '3000:3000'
+    working_dir: /var/www/html/
+    command: ["npm", "run", "dev"]
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    ports:
+      - '4040:4040'
+    environment:
+      - NGROK_AUTHTOKEN=2ZhWTPgouLSCf0gjzc3RZqhzcmg_65S1qdH1a4ahr8C6GaprY
+    command: http 3000 --domain=albacore-creative-partially.ngrok-free.app
+    depends_on:
+      - nodejs
+    network_mode: host
