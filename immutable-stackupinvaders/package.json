@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "http-server -p 3000",
+    "dev": "npm i && npm run start"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
